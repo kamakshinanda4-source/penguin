@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> HI SIDDHARTH YADAV!!💕</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    .slide {
+      display: none;
+      padding: 60px 20px;
+      min-height: 100vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    .active {
+      display: block;
+    }
+
+    img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      margin: 25px 0;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    button {
+      background: white;
+      color: #ff4f7b;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 30px;
+      margin: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #ffe6ec;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS CONTAINER -->
+<div id="hearts"></div>
+
+<!-- SLIDE 1 -->
+<div class="slide active" id="slide1">
+  <h1> pucchuUUUu 🧸💗</h1>
+  <img src="pic1.jpg" alt="us">
+  <p>Let me take you back for a second… 🕰️✨</p>
+  <button onclick="next(2)">Next ➡️</button>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" id="slide2">
+  <h1>10th October 2024 📅</h1>
+  <img src="pic2.jpg" alt="memory">
+  <p>The day we first talked0 10TH OCTOBER,2024…</p>
+  <p>You replied to my Instagram story 👀</p>
+  <p><b>“Hottie 😭😭😭😭😭😭”</b></p>
+  <p>Kind of weird… but I was curious 😌</p>
+  <p>Who IS this guy? 🤨💭</p>
+  <button onclick="next(3)">Next ➡️</button>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" id="slide3">
+  <h1>And somehow… 💫</h1>
+  <img src="pic3.jpg" alt="cute">
+  <p>Conversations started 🫶</p>
+  <p> I LOVE TALKING TO YOU </p>
+  <p> YOU MAKE ME SO HAPPY, JUST BY BEING HERE💓</p>
+  <p>And now here we are…</p>
+  <button onclick="next(4)">Next ➡️</button>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" id="slide4">
+  <h1>So I have one question… 🥺💌</h1>
+  <img src="pic4.jpg" alt="question">
+  <p><b>Do you love me or not?</b></p>
+
+  <button onclick="yes()">Yes 💖</button>
+  <button onclick="no()">No 🙈</button>
+</div>
+
+<!-- RESULT -->
+<div class="slide" id="result"></div>
+
+<script>
+  function next(n) {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    document.getElementById('slide' + n).classList.add('active');
+  }
+
+  function yes() {
+    showResult(`
+      <h1>I love you too pucchuu 🥹💖</h1>
+      <img src="pic5.jpg" alt="love">
+      <p>You have no idea how happy this makes me, PAPA JI? DADDY🤭💖 </p>
+      <p>Come here 🫂💋</p>
+    `);
+  }
+
+  function no() {
+    showResult(`
+      <h1>I know… you do 😌💋</h1>
+      <img src="pic6.jpg" alt="tease">
+      <p>Shutup bebuuu 😋</p>
+      <p>Stop lying to yourself 🤭💖</p>
+    `);
+  }
+
+  function showResult(html) {
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    document.getElementById('result').classList.add('active');
+    document.getElementById('result').innerHTML = html;
+  }
+
+  /* HEART GENERATOR */
+  const hearts = ["💗","💖","💕","💘","💞","❤️"];
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 7000);
+  }, 400);
+</script>
+
+</body>
+</html>
